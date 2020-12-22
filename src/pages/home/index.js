@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import constants from 'expo-constants'
+import { Button, Text, View, StyleSheet } from 'react-native';
 
 export default function Home({navigation}) {
   return (
-    <View>
+    <View style={styles.container}>
         <Text>Home Page</Text>
         <Button
           title="Go To Restaurants"
@@ -12,3 +13,15 @@ export default function Home({navigation}) {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+  },
+  container: {
+    backgroundColor: 'white',
+    paddingTop: constants.statusBarHeight + 60
+  }
+});
