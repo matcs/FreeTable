@@ -15,8 +15,8 @@ const {height,width} = Dimensions.get('window');
 export default function Restaurants({navigation}) {
   return (
      <View style={styles.container}>
-       <Text onPress={ () => navigation.navigate('RestaurantDetails')}>Busca</Text>
-        <ScrollView scrollEventThrottle={16}>
+       <Text style={styles.header}>Busca</Text>
+        <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}}>
           <View style={styles.view}>
             <Text style={styles.text}>
               Recomendações
@@ -37,10 +37,11 @@ export default function Restaurants({navigation}) {
             </View>
           </View>
         </ScrollView>
-        <ScrollView scrollEventThrottle={16}>
+
+        <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}}>
           <View style={styles.view}>
             <Text style={styles.text}>
-              Comida Asiatica
+              Recomendações
             </Text>
             <View style={styles.scrollview_view}>
               <ScrollView 
@@ -58,10 +59,11 @@ export default function Restaurants({navigation}) {
             </View>
           </View>
         </ScrollView>
-        <ScrollView scrollEventThrottle={16}>
+
+        <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}}>
           <View style={styles.view}>
             <Text style={styles.text}>
-              Comida Italiana
+              Recomendações
             </Text>
             <View style={styles.scrollview_view}>
               <ScrollView 
@@ -85,13 +87,14 @@ export default function Restaurants({navigation}) {
 
 const styles = StyleSheet.create({
   header: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center'
+    fontSize:40,
+    fontWeight:'700',
+    paddingHorizontal: 25
   },
   container: {
+    flex: 1,
     backgroundColor: 'white',
-    paddingTop: constants.statusBarHeight + 60
+    paddingTop: constants.statusBarHeight + 50
   },
   view: {
     flex:1,

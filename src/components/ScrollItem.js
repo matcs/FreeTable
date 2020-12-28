@@ -1,23 +1,32 @@
 import React from "react";
+import { useNavigation } from '@react-navigation/native'
 import { 
     Text, 
     View, 
     Image,
     StyleSheet
   } from 'react-native';
+import { TouchableOpacity } from "react-native-gesture-handler";
   
-export default function ScrollItem ({navigation}){
+export default function ScrollItem (){
+    const navigation = useNavigation();
+    
+    function navigateToRestaurantDetails(){
+        navigation.navigate('RestaurantDetails')
+    }
+    
     return(
         <View style={styles.container}>
             <View style={styles.view}>
-                <Image
-                    style={styles.image}
-                    source={require('../pages/assets/restaurant.jpg')}
-                />
+                <Image style={styles.image} 
+                    source={require('../pages/assets/restaurant.jpg')}/>
             </View>
             <View style={styles.title}>
-                <Text>Mamma Mia</Text>
+                <TouchableOpacity onPress={navigateToRestaurantDetails}>
+                    <Text>Mamma Mia</Text>
+                </TouchableOpacity>
             </View>
+            
         </View>
     );
 }
@@ -37,7 +46,6 @@ const styles = StyleSheet.create({
         flex:1,
         width: null, 
         height: null,
-        resizeMode:'cover'
     },
     title: {
         flex:1,

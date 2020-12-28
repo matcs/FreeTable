@@ -1,8 +1,10 @@
 import React from 'react';
 import constants from 'expo-constants'
 import { Button, Text, View, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function RestaurantDetails({navigation}) {
+export default function RestaurantDetails() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
         <Text>Restaurant Details</Text>
@@ -21,7 +23,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     container: {
+      flex: 1,
       backgroundColor: 'white',
-      paddingTop: constants.statusBarHeight + 60
+      paddingTop: constants.statusBarHeight + 50
     },    
   });
