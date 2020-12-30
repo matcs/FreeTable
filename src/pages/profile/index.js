@@ -9,9 +9,7 @@ import {
 export default function Profile(){
     return(
         <View style={styles.container}>
-            <Text>
-                Profile
-            </Text>
+            <Text style={styles.header}>Profile</Text>
         </View>
     );
 }
@@ -22,4 +20,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingTop: constants.statusBarHeight + 50
     },
+    header: {
+        fontSize:40,
+        fontWeight:'700',
+        paddingHorizontal: 25
+      },
 })

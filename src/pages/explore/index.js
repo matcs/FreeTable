@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
   header: {
     fontSize:40,
     fontWeight:'700',
-    paddingHorizontal: 25
+    paddingHorizontal: 25,
   },
   view:{
-    marginTop: 40
+    marginTop: 100
   },
   image: {
       alignSelf: 'center',
