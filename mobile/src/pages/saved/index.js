@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         paddingTop: constants.statusBarHeight + 50
     },
     title: {
-        fontSize:45,
+        fontSize:40,
         fontWeight:'700',
         paddingHorizontal: 25
     },

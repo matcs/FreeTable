@@ -14,85 +14,82 @@ import {
 const {height,width} = Dimensions.get('window');
 export default function Restaurants({navigation}) {
   return (
-     <View style={styles.container}>
-       <Text style={styles.header}>Busca</Text>
-        <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}}>
+     <ScrollView style={styles.container}>
+       <Text style={styles.header}>Restaurantes</Text>
           <View style={styles.view}>
             <Text style={styles.text}>Recomendações</Text>
-            <View style={styles.scrollview_view}>
-              <ScrollView 
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-              >
+            <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}} showsHorizontalScrollIndicator={false}>
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
-
-              </ScrollView>
-            </View>
+            </ScrollView>
           </View>
-        </ScrollView>
 
-        <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}}>
           <View style={styles.view}>
-            <Text style={styles.text}>
-              Recomendações
-            </Text>
-            <View style={styles.scrollview_view}>
-              <ScrollView 
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-              >
+            <Text style={styles.text}>Comida Chinesa</Text>
+            <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}} showsHorizontalScrollIndicator={false}>
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
-
-              </ScrollView>
-            </View>
+            </ScrollView>
           </View>
-        </ScrollView>
 
-        <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}}>
           <View style={styles.view}>
-            <Text style={styles.text}>
-              Recomendações
-            </Text>
-            <View style={styles.scrollview_view}>
-              <ScrollView 
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-              >
+            <Text style={styles.text}>Comida Thailandesa</Text>
+            <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}} showsHorizontalScrollIndicator={false}>
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
                 <ScrollItem />
-
-              </ScrollView>
-            </View>
+            </ScrollView>
           </View>
-        </ScrollView>
-      </View>
+
+          <View style={styles.view}>
+            <Text style={styles.text}>Comida Italiana</Text>
+            <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}} showsHorizontalScrollIndicator={false}>
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+            </ScrollView>
+          </View>
+
+          <View style={styles.view}>
+            <Text style={styles.text}>Comida Brasileira</Text>
+            <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}} showsHorizontalScrollIndicator={false}>
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+                <ScrollItem />
+            </ScrollView>
+          </View>
+        
+      </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    fontSize:40,
-    fontWeight:'700',
-    paddingHorizontal: 25
-  },
   container: {
     flex: 1,
     backgroundColor: 'white',
     paddingTop: constants.statusBarHeight + 50
+  },
+  header: {
+    fontSize:40,
+    fontWeight:'700',
+    paddingHorizontal: 25
   },
   view: {
     flex:1,
@@ -101,7 +98,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize:24,
     fontWeight:'700',
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   scrollview_view: {
     height:130,
