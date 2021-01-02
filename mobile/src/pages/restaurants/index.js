@@ -64,7 +64,7 @@ export default function Restaurants({navigation}) {
             </ScrollView>
           </View>
 
-          <View style={styles.view}>
+          <View style={{flex:1,paddingTop:25,paddingBottom:100}}>
             <Text style={styles.text}>Comida Brasileira</Text>
             <ScrollView scrollEventThrottle={16} horizontal={true} style={{flex:1}} showsHorizontalScrollIndicator={false}>
                 <ScrollItem />
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   view: {
     flex:1,
-    paddingTop:25
+    paddingTop:25,
   },
   text: {
     fontSize:24,
