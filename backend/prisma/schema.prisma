@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Customer{
+  id Int @default(autoincrement()) @id
+  first_name String
+  last_name String
+  email String @unique
+  password String
+}
+
+model Restaurant{
+  id Int @default(autoincrement()) @id
+  name String
+  location String
+  description String
+  tables Table[]
+}
+
+model Table{
+  id Int @default(autoincrement()) @id
+  capacity Int
+  avalible Boolean
+  restaurant Restaurant @relation(fields: [resutaurantId], references:[id])
+  resutaurantId Int @unique
+}
