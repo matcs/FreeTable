@@ -8,7 +8,7 @@ import {
   } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
   
-export default function ScrollItem (){
+export default function ScrollItem(props){
     const navigation = useNavigation();
     
     function navigateToRestaurantDetails(){
@@ -23,7 +23,7 @@ export default function ScrollItem (){
             </View>
             <View style={styles.title}>
                 <TouchableOpacity onPress={navigateToRestaurantDetails}>
-                    <Text>Mamma Mia</Text>
+                    <Text>{props.name}</Text>
                 </TouchableOpacity>
             </View>
             
