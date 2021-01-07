@@ -11,39 +11,34 @@ import {
 
 import api from '../../services/api'
 
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    name: "First Item",
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    name: "Second Item",
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    name: "Third Item",
-  },
-];
-
 export default function Restaurants() {
   const [restaurants,setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
   
-  useEffect(() => {
-    fetch('http://localhost:3333/restaurants')
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
+  async function loadRestaurants(){
+    if(loading){
+        return;
+    }
 
+    setLoading(true);
 
-  console.log(data)
+    const response = await api.get('restaurants')
+    
+    setRestaurants([...restaurants,...response.data]);
+    setLoading(false);
+  }
+
+  useEffect(()=>{
+      loadRestaurants();
+  }, [])
+
 
   const renderItem = ({ item }) => (
-    <ScrollItem name={'item'} />
+    <ScrollItem id={item.idRestaurant}
+                name={item.name} 
+                location={item.location}
+                description={item.description}
+                />
   );
 
   return (
@@ -56,9 +51,9 @@ export default function Restaurants() {
                 scrollEventThrottle={16} horizontal={true} style={{flex:1}}
                 showsHorizontalScrollIndicator={false}
                 onEndReachedThreshold={0.1}
-                //data={restaurants}
-                //renderItem={renderItem}
-                //keyExtractor={item => item.id}
+                data={restaurants}
+                renderItem={renderItem}
+                keyExtractor={item => item.idRestaurant}
               />
           </View>
       </ScrollView>

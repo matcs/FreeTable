@@ -23,7 +23,7 @@ module.exports = {
                 idRestaurant: restaurantId,
                 tables: {
                     every: {
-                        avalible: true
+                        avalible: false
                     }
                 }
             },
@@ -39,7 +39,7 @@ module.exports = {
                 resutaurantId: restaurantId
             },
             data: { 
-                avalible: false
+                avalible: true
             }
         });
 

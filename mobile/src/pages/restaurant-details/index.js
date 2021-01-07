@@ -8,18 +8,28 @@ import {
   Button,
   TouchableOpacity
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+
+import api from '../../services/api'
 
 export default function RestaurantDetails() {
-  const navigation = useNavigation();
+  const route = useRoute();
   const [count,setCount] = useState(0);
+  const restaurant = route.params.props;
+
+  const book = async() => {
+    console.log('start api')
+    const response = await api.get(`restaurant/1/book`);
+    console.log(response);
+  }
   return (
     <View style={styles.container}>
         <Text style={styles.header}>Restaurant Details</Text>
         <View>
           <Image style={styles.image} source={require('../assets/restaurant.jpg')}/>
-          <Text style={styles.title}>Restaurant Name</Text>
-          <Text style={styles.description}>Description</Text>
+          <Text style={styles.title}>{restaurant.name}</Text>
+          <Text style={styles.description}>{restaurant.description}</Text>
+          <Text style={styles.description}>{restaurant.location}</Text>
         </View>
         
         <View style={{ marginHorizontal: 25, marginTop:75}}>
@@ -48,6 +58,7 @@ export default function RestaurantDetails() {
         </View>
         <TouchableOpacity style={styles.button}
           disabled={count == 0 ? true : false}
+          onPress={book}
         >
           <Text 
           style={{alignSelf: 'center', marginTop:'auto', marginBottom:'auto',
@@ -55,7 +66,9 @@ export default function RestaurantDetails() {
           fontSize: 25,
           fontWeight:'700',
           }}
-          >Reservar</Text>
+          >
+            Reservar
+          </Text>
         </TouchableOpacity>
     </View>
   );
@@ -93,6 +106,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#ed2939',
       height: 70,
       width: 300,
-      marginTop: 75,
+      marginTop: 65,
     }
 });

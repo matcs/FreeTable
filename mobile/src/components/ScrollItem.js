@@ -10,9 +10,9 @@ import { TouchableOpacity } from "react-native-gesture-handler";
   
 export default function ScrollItem(props){
     const navigation = useNavigation();
-    
+
     function navigateToRestaurantDetails(){
-        navigation.navigate('RestaurantDetails')
+        navigation.navigate('RestaurantDetails', { props })
     }
     
     return(
